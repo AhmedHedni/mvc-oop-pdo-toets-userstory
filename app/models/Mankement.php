@@ -28,7 +28,7 @@ class Mankement
         return $this->db->single();
     }
 
-    public function updateMankement($data)
+    public function updateMankement($data) 
     {
         // var_dump($data);exit();
         $this->db->query("UPDATE Mankement
