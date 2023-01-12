@@ -1,12 +1,12 @@
 <h3><?= $data['title'] ?></h3>
-<a href="<?= URLROOT ?>/mankementen/create">Nieuw record</a>
+<a href="<?= URLROOT ?>/mankementen/create">Mankement Toevoegen</a>
 <table>
     <thead>
-        <th>Id</th>
-        <th>Naam</th>
-        <th>Hooftstad</th>
-        <th>Continent</th>
-        <th>Aantal Inwoners</th>
+        <th>Naam Instructeur</th>
+        <th>E-mailadres</th>
+        <th>Kenteken auto</th>
+        <th>Datum</th>
+        <th>Mankement</th>
         <th>Update</th>
         <th>Delete</th>
     </thead>

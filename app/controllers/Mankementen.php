@@ -101,7 +101,7 @@ class Mankementen extends Controller
         }
 
         $data = [
-            'title' => 'Voeg een nieuw land toe'
+            'title' => 'Invoeren Mankement'
         ];
         $this->view('mankementen/create', $data);
     }
