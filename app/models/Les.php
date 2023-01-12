@@ -29,7 +29,7 @@ class Les
                           WHERE Les.InstructeurId = :Id");
 
         $this->db->bind(':Id', 2, PDO::PARAM_INT);
-
+ 
         return $this->db->resultSet();
     }
 }
