@@ -1,19 +1,19 @@
 <?php
 
-class Countries extends Controller
+class Mankementen extends Controller
 {
     //properties
-    private $countryModel;
+    private $mankementModel;
 
     // Dit is de constructor van de controller
     public function __construct() 
     {
-        $this->countryModel = $this->model('Country');
+        $this->mankementModel = $this->model('Mankement');
     }
 
     public function index($land = 'Nederland', $age = 67)
     {
-        $records = $this->countryModel->getCountries();
+        $records = $this->mankementModel->getMankementen();
         //var_dump($records);
 
         $rows = '';
@@ -27,19 +27,19 @@ class Countries extends Controller
                         <td>$items->Continent</td>
                         <td>$items->Population</td>
                         <td>
-                            <a href='" . URLROOT . "/countries/update/$items->Id'>update</a>
+                            <a href='" . URLROOT . "/mankementen/update/$items->Id'>update</a>
                         </td>
                         <td>
-                            <a href='" . URLROOT . "/countries/delete/$items->Id'>delete</a>
+                            <a href='" . URLROOT . "/mankementen/delete/$items->Id'>delete</a>
                         </td>
                       </tr>";
         }
 
         $data = [
-            'title' => "Overzicht landen",
+            'title' => "Overzicht Mankementen",
             'rows' => $rows
         ];
-        $this->view('countries/index', $data);
+        $this->view('mankementen/index', $data);
     }
 
     public function update($id = null) 
@@ -53,12 +53,12 @@ class Countries extends Controller
              */
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-            $this->countryModel->updateCountry($_POST);
+            $this->mankementModel->updateMankement($_POST);
 
-            header("Location: " . URLROOT . "/country/index");
+            header("Location: " . URLROOT . "/mankement/index");
         }
 
-        $record = $this->countryModel->getCountry($id);
+        $record = $this->mankementModel->getMankement($id);
 
         $data = [
             'title' => 'Update Landen',
@@ -68,18 +68,18 @@ class Countries extends Controller
             'Continent' => $record->Continent,
             'Population' => $record->Population
         ]; 
-        $this->view('countries/update', $data);
+        $this->view('mankementen/update', $data);
     }
 
     public function delete($id)
     {
-        $result = $this->countryModel->deleteCountry($id);
+        $result = $this->mankementModel->deleteMankement($id);
         if ($result) {
             echo "Het record is verwijderd uit de database";
-            header("Refresh: 3; URL=" . URLROOT . "/countries/index");
+            header("Refresh: 3; URL=" . URLROOT . "/mankementen/index");
         } else {
             echo "Internal servererror, het record is niet verwijderd";
-            header("Refresh: 3; URL=" . URLROOT . "/countries/index");
+            header("Refresh: 3; URL=" . URLROOT . "/mankementen/index");
         }
     }
 
@@ -89,20 +89,20 @@ class Countries extends Controller
             // $_POST array schoonmaken
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-            $result = $this->countryModel->createCountry($_POST);
+            $result = $this->mankementModel->createMankement($_POST);
 
             if ($result) {
                 echo "Het invoeren is gelukt";
-                header("Refresh:3; URL=" . URLROOT . "/countries/index");
+                header("Refresh:3; URL=" . URLROOT . "/mankementen/index");
             } else {
                 echo "Het invoeren is NIET gelukt";
-                header("Refresh:3; URL=" . URLROOT . "/countries/index");
+                header("Refresh:3; URL=" . URLROOT . "/mankementen/index");
             }
         }
 
         $data = [
             'title' => 'Voeg een nieuw land toe'
         ];
-        $this->view('countries/create', $data);
+        $this->view('mankementen/create', $data);
     }
 }

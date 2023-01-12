@@ -26,11 +26,11 @@ USE `mvc-2109a`;
 -- --------------------------------------------------------
 
 --
--- Tabelstructuur voor tabel `country`
+-- Tabelstructuur voor tabel `mankement`
 --
 
-DROP TABLE IF EXISTS `country`;
-CREATE TABLE IF NOT EXISTS `country` (
+DROP TABLE IF EXISTS `mankement`;
+CREATE TABLE IF NOT EXISTS `mankement` (
   `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) NOT NULL,
   `CapitalCity` varchar(100) NOT NULL,
@@ -40,10 +40,10 @@ CREATE TABLE IF NOT EXISTS `country` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Gegevens worden geëxporteerd voor tabel `country`
+-- Gegevens worden geëxporteerd voor tabel `mankement`
 --
 
-INSERT INTO `country` (`Id`, `Name`, `CapitalCity`, `Continent`, `Population`) VALUES
+INSERT INTO `mankement` (`Id`, `Name`, `CapitalCity`, `Continent`, `Population`) VALUES
 (1, 'Nederland', 'Amsterdam', 'Europa', 17000000),
 (2, 'Belgi&euml;', 'Brussel', 'Europa', 11500000),
 (4, 'Marokko', 'Rabat', 'Afrika', 36900000);

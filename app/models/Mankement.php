@@ -1,37 +1,37 @@
 <?php
 
 /**
- * Dit is de model voor de controller Countries
+ * Dit is de model voor de controller Mankementen
  */
 
-class Country
+class Mankement
 {
     //properties
     private $db;
 
-    // Dit is de constructor van de Country model class
+    // Dit is de constructor van de Mankement model class
     public function __construct()
     {
         $this->db = new Database();
     }
 
-    public function getCountries()
+    public function getMankementen()
     {
-        $this->db->query('SELECT * FROM Country');
+        $this->db->query('SELECT * FROM Mankement');
         return $this->db->resultSet();
     }
 
-    public function getCountry($id)
+    public function getMankement($id)
     {
-        $this->db->query("SELECT * FROM Country WHERE Id = :id");
+        $this->db->query("SELECT * FROM Mankement WHERE Id = :id");
         $this->db->bind(':id', $id, PDO::PARAM_INT);
         return $this->db->single();
     }
 
-    public function updateCountry($data)
+    public function updateMankement($data)
     {
         // var_dump($data);exit();
-        $this->db->query("UPDATE Country
+        $this->db->query("UPDATE Mankement
                           SET Name = :Name,
                               CapitalCity = :CapitalCity,
                               Continent = :Continent,
@@ -47,16 +47,16 @@ class Country
         return $this->db->execute();
     }
 
-    public function deleteCountry($id)
+    public function deleteMankement($id)
     {
-        $this->db->query("DELETE FROM country WHERE Id = :id");
+        $this->db->query("DELETE FROM mankement WHERE Id = :id");
         $this->db->bind(':id', $id, PDO::PARAM_INT);
         return $this->db->execute();
     }
 
-    public function createCountry($post)
+    public function createMankement($post)
     {
-        $this->db->query("INSERT INTO country (Id, 
+        $this->db->query("INSERT INTO mankement (Id, 
                                                Name, 
                                                CapitalCity, 
                                                Continent, 

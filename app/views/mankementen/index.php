@@ -1,5 +1,5 @@
 <h3><?= $data['title'] ?></h3>
-<a href="<?= URLROOT ?>/countries/create">Nieuw record</a>
+<a href="<?= URLROOT ?>/mankementen/create">Nieuw record</a>
 <table>
     <thead>
         <th>Id</th>

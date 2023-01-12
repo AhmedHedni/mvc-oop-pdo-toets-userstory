@@ -8,7 +8,7 @@ class Les
     //properties
     private $db;
 
-    // Dit is de constructor van de Country model class
+    // Dit is de constructor van de Mankement model class
     public function __construct()
     {
         $this->db = new Database();
